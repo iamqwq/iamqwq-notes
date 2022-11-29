@@ -8,7 +8,7 @@
 
 Web 容器、Web 服务器和应用服务器名词概念？ // TODO
 
-![202210281715servlet-principle.excalidraw](C:\Users\iamqwq\Desktop\ImageTemp\Studing\202210281715servlet-principle.excalidraw.png)
+![202210281715servlet-principle.excalidraw](Servlet.assets/202210281715servlet-principle.excalidraw.png)
 
 ## 2 通过 Maven 引入 Servlet
 

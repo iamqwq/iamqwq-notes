@@ -46,7 +46,7 @@
 
 当遇到一个可能会出现问题的地方时，需要抛出异常。放到一般生活中，解决问题首先需要认识问题，然后交给能处理它的人手上，最终解决这个问题。
 
-![202208171600solve-problem.excalidraw](Exception - 异常.assets/202208171600solve-problem.excalidraw.png)
+<img src="Exception - 异常.assets/202208171600solve-problem.excalidraw.png" alt="202208171600solve-problem.excalidraw" style="zoom: 33%;" />
 
 1. 认识问题，声明一个指定类型的异常的意义就是表明了异常的类型。
 2. 交给能够处理该问题的处理者手中，抛出的 ”抛“ 字即表示了此处并不处理产生该异常的后果，而是让调用该类或方法的上级类或方法手中处理。

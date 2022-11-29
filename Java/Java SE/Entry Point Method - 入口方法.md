@@ -2,7 +2,7 @@
 
 Java 的入口方法是一个最简单的可以执行的 Java 应用程序所使用的代码，下例是入口函数的格式（class 后的名称和代码块内的内容是可变的，其它部分则不是）。
 
-（在 Intellij IDEA 中输入 psvm 等待半秒即可弹出代码补全框以补全 Java 入口方法，输入 sout 以补全 System.out.println();）
+（在 Intellij IDEA 中输入 psvm 等待半秒即可弹出代码补全框以补全 Java 入口方法，输入 sout 以补全 System.out.println(); ）
 
 ```java
 public class Demo1EntryPointFunction {
