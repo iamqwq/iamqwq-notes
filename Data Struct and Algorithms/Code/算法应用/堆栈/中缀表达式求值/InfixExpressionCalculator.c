@@ -14,7 +14,7 @@
 
 int main() {
 
-	char s[] = "22 % 10";
+	char s[] = "1 + (19 * 3)";
 	printf("Original Expression : %s\n", s);
 	
 	infixConvertToSuffix(s);
