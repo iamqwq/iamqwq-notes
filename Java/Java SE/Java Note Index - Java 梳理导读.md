@@ -1,15 +1,15 @@
 # Java Note Index - Java 梳理导读
 
-- [Java Features - Java 特点](.\Java Features - Java 特点)
-- [Entry Point Method - 入口方法](.\Entry Point Method - 入口方法.md)
-- [Basic Programming - 基本程序设计](.\Basic Programming - 基本程序设计.md)
+- [Java Features - Java 特点](./Java Features - Java 特点)
+- [Entry Point Method - 入口方法](./Entry Point Method - 入口方法.md)
+- [Basic Programming - 基本程序设计](./Basic Programming - 基本程序设计.md)
   - 数据类型
   - 变量类型
   - 运算（省略）（BigDecimal and BigInteger TODO）
   - 流程控制（省略）
   - 访问控制符 TODO
   - 非访问控制符 TODO
-- [Array - 数组](.\Array - 数组.md)
+- [Array - 数组](./Array - 数组.md)
 - [**OOP - 面向对象**](./OOP - 面向对象.md)
   - 理解类和对象
     - 浅谈面向对象
@@ -29,8 +29,8 @@
   - 对象包装器、自动装拆箱
   - 接口
   - 内部类
-- [Enum - 枚举](.\Enum - 枚举.md)
-- [Generics - 泛型](.\Generics - 泛型.md)
+- [Enum - 枚举](./Enum - 枚举.md)
+- [Generics - 泛型](./Generics - 泛型.md)
 - [Exception - 异常](./Exception - 异常.md)
 - 常用类
   - String
