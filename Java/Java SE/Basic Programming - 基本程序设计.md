@@ -1,5 +1,3 @@
-
-
 # Basic Programming - 基本程序设计
 
 ## 1 数据类型
