@@ -1,7 +1,5 @@
 # Access Network - 接入网
 
-## 1 接入网
-
 ![202206231118send-request-3x](Access%20Network%20-%20%E6%8E%A5%E5%85%A5%E7%BD%91.assets/202206231118send-request-3x.png)
 
 client 所在的网络中的任何一台终端设备如果想要与其它远程终端通信，都必须经过互联网最边缘的一台路由器，这台路由器担负着为其局域网提供在互联网转发的功能，该局域网就被称为**接入网**，而这台路由器被称为**边缘路由器**。
@@ -10,7 +8,7 @@ client 所在的网络中的任何一台终端设备如果想要与其它远程�
 
 为简化说明，我们先无视这个环节。假设局域网中的路由器即是边缘路由器，因此，这个局域网就成为了接入网，下面进一步介绍常见的（家用）局域网拓扑结构。
 
-### 1. 1 常见的局域网拓扑结构
+### 常见的局域网拓扑结构
 
 ![home-network-structure-3x.excalidraw](Access%20Network%20-%20%E6%8E%A5%E5%85%A5%E7%BD%91.assets/home-network-structure-3x.excalidraw.png)
 
