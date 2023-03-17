@@ -8,7 +8,7 @@ client 所在的网络中的任何一台终端设备如果想要与其它远程�
 
 为简化说明，我们先无视这个环节。假设局域网中的路由器即是边缘路由器，因此，这个局域网就成为了接入网，下面进一步介绍常见的（家用）局域网拓扑结构。
 
-### 常见的局域网拓扑结构
+## 常见的局域网拓扑结构
 
 ![home-network-structure-3x.excalidraw](Access%20Network%20-%20%E6%8E%A5%E5%85%A5%E7%BD%91.assets/home-network-structure-3x.excalidraw.png)
 
@@ -19,3 +19,7 @@ client 所在的网络中的任何一台终端设备如果想要与其它远程�
 首先 optical fiber（光纤，即为入户光纤）连接 optical network terminal 即 optical modem（光网络终端，即为光猫）。光猫又以 ethernet cable（网线）连接 router（路由器）。
 
 路由器通过网线的方式连接了 server （服务器）和 PC 1 （个人电脑 1），又通过无线的方式连接了 mobile phone （手机）等无线设备。
+
+-----
+
+至此，我们已经从较抽象的层面理解了两个终端设备的通信方式：互联网从终端 a 通过其接入网 A 的边缘路由器，连接至网络核心，再由其中的转发设备不断向目标所在的位置转发，直到数据到达目标接入网 B，接入网 B 再负责将数据送至目标终端 b。
