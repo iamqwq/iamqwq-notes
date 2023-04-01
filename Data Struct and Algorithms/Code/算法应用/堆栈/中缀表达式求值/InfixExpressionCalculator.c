@@ -14,7 +14,7 @@
 
 int main() {
 
-	char s[] = "1 + (19 * 3)";
+	char s[] = "12 + (9 - 19 * 3) * 9 / 3";
 	printf("Original Expression : %s\n", s);
 	
 	infixConvertToSuffix(s);

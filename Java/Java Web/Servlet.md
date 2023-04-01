@@ -2,11 +2,17 @@
 
 ## 1 浅谈 Servlet
 
-> **Servlet**（Server Applet），全称**Java Servlet**。是用[Java](https://zh.wikipedia.org/wiki/Java)编写的[服务器](https://zh.wikipedia.org/wiki/服务器)端[程序](https://zh.wikipedia.org/wiki/程序)。其主要功能在于交互式地浏览和修改数据，生成动态[Web](https://zh.wikipedia.org/wiki/Web)内容。狭义的Servlet是指Java语言实现的一个[接口](https://zh.wikipedia.org/wiki/接口)，广义的Servlet是指任何实现了这个Servlet接口的[类](https://zh.wikipedia.org/wiki/类_(计算机科学))，一般情况下，人们将Servlet理解为后者。
+Servlet 的最大作用是可以根据 HTTP 请求生成 HTTP 响应，因此可以动态的生成页面内容。
 
-在我目前看来，Servlet 最具有特点的地方是可以动态的生成页面内容。
+> Servlet可以响应来自浏览器的请求，生成动态网页、处理表单数据、控制会话状态、管理cookie、访问数据库等等。
 
-要了解它的运作原理，就需要明白 Servlet 这一名词包含的一般前提。首先，继承了 HttpServlet 的类就是 Servlet。它当然不是独立运作的，要使它发挥作用，那么至少还需要一个 Web 容器。当一个请求从客户端访问主机的 Web 容器所监听的端口时（用户在浏览器中输入域名并访问它），Web 容器就会将请求的内容封装起来，根据请求的路径转发到对应处理该请求的 Servlet（这个路径转发的功能一般称为 Dispatcher ），随后 Servlet 根据请求进行相关处理或返回一些数据（在浏览器中显示页面内容）。
+首先，继承了 HttpServlet 的类就是 Servlet，因此 Servlet 是运行在服务端的 Java 程序，它并不负责接收来自客户端的请求、安全性等职能，这些职责由 Web 容器（也称 Web 服务器）来负责。
+
+> Web容器也称为Web服务器，是一种服务器软件，主要用于运行Web应用程序和管理Web应用程序的生命周期。Web容器提供了运行Web应用程序所需的各种服务和资源，例如HTTP请求处理、安全性、会话管理、线程池、JNDI等等。
+>
+> 一些流行的Web容器包括Apache Tomcat、Jetty、JBoss、WebSphere等等。
+
+Web 容器的存在是必要的，容器完成的工作是一个高度可复用的职责（或许可以考虑自己手写一个 Web 容器来提升技术和理解）：
 
 > 要编写一个完善的HTTP服务器，以HTTP/1.1为例，需要考虑的包括：
 >
@@ -33,15 +39,21 @@
 >
 > 原文链接：https://www.liaoxuefeng.com/wiki/1252599548343744/1304265949708322
 
-在详细一些来讲，当用户通过浏览器（或许是客户）端访问 Tomcat 的时候通常使用的 Get 或者 Post 方式，但是总归是一条请求。Web 容器此时会产生两个对象，即请求对象和响应对象。当这种请求第一次需要处理的时候，就会生成一个对应处理该类请求的 Servlet 对象，而 Servlet 会通过 Service 方法获得请求对象和响应对象，然后 Servlet 根据请求来填充响应（这个部分即是开发者所需要做的），最终 Web 容器再将响应送回浏览器（或许是客户）端。
+现在来理解 Servlet 的运行过程：
 
-Web 容器、Web 服务器和应用服务器名词概念？ // TODO
+1. 浏览器端（browser）访问主机的 Web 容器（web container）所监听的端口（用户在浏览器中输入域名并请求它）。
+2. Web 容器将请求的内容封装成 HttpRequest 对象。
+3. Web 容器创建 HttpResponse 对象。
+4. Web 容器会根据请求的 URL 路径匹配到对应的 Servlet。
+5. Web 容器将 HttpRequest 对象和 HttpResponse 对象作为参数传给对应的 Servlet（这个过程通过调用 HttpServlet 的 service() 来实现）。
+6. 由你编写的 Servlet 来解析 HttpRequest 对象中的请求内容，并作相关处理，调用 HttpResponse 对象的相关方法向 Web 容器返回响应数据。
+7. Web 容器向浏览器端返回响应数据。
 
 ![202210281715servlet-principle.excalidraw](Servlet.assets/202210281715servlet-principle.excalidraw.png)
 
 ## 2 通过 Maven 引入 Servlet
 
-Oracle 将 Servlet 移交给 Eclipse 之后要求禁止使用 Java 商标，因此包名也从 javax.servlet 改成了 jakarta.servlet。
+Oracle 公司将 Servlet 移交给 Eclipse 组织维护之后要求禁止使用 Java 商标，因此包名也从 javax.servlet 改成了 jakarta.servlet。
 
 从 Maven 引入 Servlet，5.0.0 的引用是这样的：
 
@@ -58,11 +70,11 @@ Oracle 将 Servlet 移交给 Eclipse 之后要求禁止使用 Java 商标，因�
 
 首先在开始接触使用 Servlet API 前，先回顾一下编写 Servlet 的目的：
 
-> 在我目前看来，Servlet 最具有特点的地方是可以动态的生成 Web 内容 . . .
+> Servlet 的最大作用是可以根据 HTTP 请求生成 HTTP 响应，因此可以动态的生成页面内容。
 
-Web 容器帮助我们处理了 TCP 连接以及解析 HTTP 协议这些底层繁琐的工作。因此我们在 Servlet 主要做的事情是根据请求内容来返回请求所需要的资源上。
+Web 容器帮助我们处理了底层繁琐的工作。因此我们在 Servlet 主要做的事情是根据请求内容来返回请求所需要的资源上。
 
-在真正开始编写 Servlet 代码前首先需要下载 Web 容器：
+在真正开始编写 Servlet 代码前首先需要下载 Web 容器（此处略过配置）：
 
 ### 3. 1  Hello Servlet（ HTTPServletRequest、HTTPServletResponse ）
 
@@ -97,9 +109,9 @@ public class HelloServlet extends HttpServlet {
 </servlet-mapping>
 ```
 
-但在 Servlet 5.0.0 中可以直接使用注解来配置路径映射。（这真的方便了好多！）
+但在 Servlet 高版本中可以直接使用注解来配置路径映射。（这真的方便了好多！）
 
-此时运行 Tomcat 之后，访问 http://localhost:8080/context_name/hello 就可以得到在网页文档上输出的 Hello Servlet。刚刚路径的 context_name 并不是一个绝对值，这取决于你设置的应用程序上下文：如果你的 Web 容器使用的是 IDEA 集成的 Tomcat，那么你可以通过点击运行按钮左侧的 Tomcat 下拉框选择编辑配置，然后选择 " 部署 — 应用程序上下文（ context ）" 来编辑最开始我们所说的 context_name 路径。
+此时运行 Tomcat 之后，访问 http://localhost:8080/context_name/hello 就可以得到在网页文档上输出的 Hello Servlet。刚刚路径的 context_name 并不是一个绝对值，这取决于你设置的应用程序上下文：如果你的 Web 容器使用的是 IDEA 集成的 Tomcat，那么你可以通过点击运行按钮左侧的 Tomcat 下拉框选择编辑配置，然后选择 " 部署 — 应用程序上下文（ context ）" 来编辑最开始所说的 context_name 路径。
 
 HelloServlet 继承的 HttpServlet 使它可以重写 doGet 与 doPost 方法，这两个方法代表了请求该路径时使用的不同方式（ Get 或 POST ）。
 
