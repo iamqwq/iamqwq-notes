@@ -79,17 +79,3 @@ WHERE prop3 IN
 	FROM tab2
 	WHERE (logical expressions))
 ```
-
-
-
-时间 戏剧性、背景的、可能性
-
-健康 
-
-金钱 通用的资源调配符号
-
-人际 认同
-
-爱欲 推动的、超越的
-
-理性 避免极化

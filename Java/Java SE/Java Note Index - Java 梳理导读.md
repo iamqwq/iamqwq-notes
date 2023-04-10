@@ -1,7 +1,7 @@
 # Java Note Index - Java 梳理导读
 
 - ~~[Java Features - Java 特点](./Java Features - Java 特点)~~
-- [Java Overview - 浅谈 Java](./Java Overview - 浅谈 Java.md)
+- [Workflow of Java Program - Java 程序的运行流程](./Workflow of Java Program - Java 程序的运行流程.md)
 - [Entry Point Method - 入口方法](./Entry Point Method - 入口方法.md)
 - [Basic Programming - 基本程序设计](./Basic Programming - 基本程序设计.md)
   - 数据类型
@@ -35,11 +35,13 @@
 - [Exception - 异常](./Exception - 异常.md)
 - 常用类
   - String
-  - 日期时间
-  - 集合类
-  - 日志
+  - Date
+  - Collections
+  - Arrays
+  - System
+  - Log
 - [Multithreading - 多线程 TODO](./Multithreading - 多线程.md)
 - [IOStream - IO 流](./IOStream - IO 流.md)
 - [Networking - 网络](./Networking - 网络)
-- [Annotation - 注解](./Annotation - 注解.md)
-- 反射
+- [Annotation - 注解](.\Annotation - 注解.md)
+- [Reflection - 反射](.\Reflection - 反射.md)
